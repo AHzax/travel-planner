@@ -1,0 +1,41 @@
+name: clean_architecture_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter  # ✅ must specify 'sdk: flutter'
+  bloc: ^8.1.4
+  cached_network_image: ^3.4.1
+  connectivity_plus: ^6.1.0
+  dartz: ^0.10.1
+  equatable: ^2.0.7
+  flutter_bloc: ^8.1.6 
+  flutter_hooks: ^0.20.5
+  get_it: ^8.0.2
+  http: ^1.2.2
+  shared_preferences: ^2.3.3
+  dio: ^5.8.0+1
+  auto_route: ^10.1.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.13
+  flutter_gen_runner: ^5.4.0
+  auto_route_generator: ^10.0.1
+
+flutter_gen:
+  output: lib/core/gen/
+
+  integrations:
+    flutter_svg: true
+
+flutter:
+  uses-material-design: true
