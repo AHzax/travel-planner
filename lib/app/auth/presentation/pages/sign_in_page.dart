@@ -1,3 +1,6 @@
+import 'package:clean_architecture_app/app/auth/presentation/pages/forgot_password_page.dart';
+import 'package:clean_architecture_app/app/auth/presentation/pages/register_page.dart';
+import 'package:clean_architecture_app/app/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
@@ -105,7 +108,8 @@ class SignInPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushNamed(
+                              context, ForgotPasswordPage.routeName),
                           child: const Text(
                             'Forgot password?',
                             style: TextStyle(
@@ -132,7 +136,8 @@ class SignInPage extends StatelessWidget {
                           ),
                         ),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushNamed(
+                              context, DashboardPage.routeName),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             shadowColor: Colors.transparent,
@@ -154,8 +159,8 @@ class SignInPage extends StatelessWidget {
                       const SizedBox(height: 24),
 
                       // Divider
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Expanded(child: Divider()),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 12),
@@ -180,9 +185,9 @@ class SignInPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(14),
                           ),
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Text(
                               'G',
                               style: TextStyle(
@@ -206,20 +211,25 @@ class SignInPage extends StatelessWidget {
 
                       // Sign Up
                       Center(
-                        child: RichText(
-                          text: TextSpan(
-                            text: "Don't have an account? ",
-                            style: const TextStyle(color: Colors.grey),
-                            children: [
-                              TextSpan(
-                                text: 'Sign Up',
-                                style: const TextStyle(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Don't have an account? ",
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            InkWell(
+                              onTap: () => Navigator.pushNamed(
+                                  context, RegisterPage.routeName),
+                              child: const Text(
+                                'Sign Up',
+                                style: TextStyle(
                                   color: Color(0xFF12C7A1),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ],
-                          ),
+                            )
+                          ],
                         ),
                       ),
                     ],
