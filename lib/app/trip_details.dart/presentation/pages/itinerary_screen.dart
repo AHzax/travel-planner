@@ -115,7 +115,10 @@ Widget _header(BuildContext context) {
             ],
           ),
         ),
-        Icon(Icons.map_outlined, color: Colors.white),
+        IconButton(
+          onPressed: () => Navigator.pushNamed(context, DayMapScreen.routeName),
+          icon:const Icon(Icons.map_outlined, color: Colors.white),
+        ),
       ],
     ),
   );
@@ -231,90 +234,87 @@ class _ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => Navigator.pushNamed(context, DayMapScreen.routeName),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 10,
-              offset: const Offset(0, 6),
-            ),
-          ],
-          border: const Border(
-            left: BorderSide(color: Color(0xFF00BFA6), width: 4),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 10,
+            offset: const Offset(0, 6),
           ),
+        ],
+        border: const Border(
+          left: BorderSide(color: Color(0xFF00BFA6), width: 4),
         ),
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 52,
-              width: 52,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFF1E6BF1), Color(0xFF00BFA6)],
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 52,
+            width: 52,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF1E6BF1), Color(0xFF00BFA6)],
               ),
-              alignment: Alignment.center,
-              child: Text(
-                '$index',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              '$index',
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(height: 6),
-                  Row(
-                    children: [
-                      const Icon(Icons.access_time,
-                          size: 16, color: Color(0xFF00BFA6)),
-                      const SizedBox(width: 6),
-                      Text(
-                        time,
-                        style: const TextStyle(
-                          color: Color(0xFF00BFA6),
-                          fontWeight: FontWeight.w600,
-                        ),
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    const Icon(Icons.access_time,
+                        size: 16, color: Color(0xFF00BFA6)),
+                    const SizedBox(width: 6),
+                    Text(
+                      time,
+                      style: const TextStyle(
+                        color: Color(0xFF00BFA6),
+                        fontWeight: FontWeight.w600,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFEEF2F7),
-                      borderRadius: BorderRadius.circular(14),
                     ),
-                    child: Text(
-                      note,
-                      style: const TextStyle(color: Colors.black54),
-                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFEEF2F7),
+                    borderRadius: BorderRadius.circular(14),
                   ),
-                ],
-              ),
+                  child: Text(
+                    note,
+                    style: const TextStyle(color: Colors.black54),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
